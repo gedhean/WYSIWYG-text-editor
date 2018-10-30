@@ -92,7 +92,21 @@
   margin-bottom: 36px;
 }
 
+.section {
+  outline: transparent dashed 2px;
+}
+
+.section:hover {
+  outline: rgba(68, 68, 68, 0.603) dashed 2px;
+}
+
 .section-title {
   font-size: 2rem;
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  color: var(--primary-color);
+  font-size: 1.5rem;
 }
