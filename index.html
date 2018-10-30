@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>WYSIWYG Editor</title>
+</head>
+<body>
+  <div id="wysiwyg-text-editor">
+    <div class="menu-container">
+      <div id="menu-tool-bar">
+        <div class="menu-item">
+          <i class="fa fa-font menu-icon"></i>
+          <span class="menu-lable">Tipografia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div id="paper-cv" class="z-depth-5">
+      <div id="editable-area">
+        <ul class="cv-header">
+          <li>
+            <p id="name" contenteditable="true">Seu nome completo</p>
+            <p id="profession" contenteditable="true">Profissão ou atividade</p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p class="section-title" contenteditable="true">Título da secção</p>
+            <div class="work-xp-container">
+              <p class="section-subtitle" contenteditable="true">Cargo</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

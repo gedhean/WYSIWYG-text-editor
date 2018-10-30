@@ -1,0 +1,98 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#wysiwyg-text-editor {
+  font-size: 18px;
+  color: #333;
+}
+
+:root {
+  --primary-color: rgb(51, 49, 180);
+  --font-family: 'Poppins';
+}
+
+.menu-container {
+  position: fixed;
+  top: 0px;
+  padding: 40px;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#menu-tool-bar {
+  width: 400px;
+  border-radius: 5px;
+  background-color: #666;
+}
+
+.menu-item {
+  display: inline-block;
+  height: 100%;
+  padding: 18px;
+  text-align: center;
+}
+
+.menu-icon {
+  color: #FFF;
+  font-size: 2rem;
+}
+
+.menu-lable {
+  color: #FFF;
+  display: block;
+  margin-top: 8px;
+}
+
+#editable-area {
+  font-family: var(--font-family);
+}
+
+#editable-area li {
+  list-style: none;
+}
+
+.wrapper {
+  margin: auto;
+  max-width: 920px;
+  margin-top: 200px;
+}
+
+#paper-cv {
+  width: 100%;
+  min-height: 900px;
+  padding: 16px 36px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+.shadow-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#name {
+  color: var(--primary-color);
+  font-size: 4rem;
+}
+
+#profession {
+  font-size: 2rem;
+}
+
+.cv-header {
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
