@@ -100,6 +100,10 @@
   outline: rgba(68, 68, 68, 0.603) dashed 2px;
 }
 
+.section:hover .float-btn {
+  display: block;
+}
+
 .section-title {
   font-size: 2rem;
   font-weight: bold;
@@ -109,4 +113,26 @@
 .section-subtitle {
   color: var(--primary-color);
   font-size: 1.5rem;
+}
+
+.section-item-container {
+  position: relative;
+}
+
+.float-btn {
+  display: none;
+  position: absolute;
+  right: -16px;
+  top: -16px;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: var(--primary-color);
+}
+
+.paper {
+  box-shadow: rgba(0,0,0,.3) 0.4rem 0.7rem 9.3rem 0.3rem;
+  border-radius: 5px;
 }
