@@ -13,26 +13,37 @@ window.onready = function(callback) {
 
 onready(function() {
   const secItemTamplate = function() {
-    const secId = Date.now()
+    const secItemId = Date.now()
     return `
-    <div class="section-item-container section" id="sec-${secId}">
-    <p class="section-subtitle" contenteditable="true">Cargo/Posição</p>
-    <p class="section-description" contenteditable="true" spellcheck="false">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium. 
-    Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
-    </p>
-    <div class="create-sec float-btn" data-action="create" data-secid="sec-${secId}"><i class="fa fa-plus" data-action="create" data-secid="sec-${secId}"></i></div>
-    <div class="remove-sec float-btn" data-action="remove" data-secid="sec-${secId}"><i class="fa fa-minus" data-action="remove" data-secid="sec-${secId}"></i></div>
-    </div>
-    `
+      <div class="section-item-container section" id="sec-item-${secItemId}">
+        <p class="section-subtitle" contenteditable="true">Subtítulo</p>
+        <p class="section-description" contenteditable="true" spellcheck="false">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium. 
+        Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
+        </p>
+        <div class="create-sec-item float-btn" data-action="create" data-secid="sec-item-${secItemId}">
+          <i class="fa fa-plus" data-action="create" data-secid="sec-item-${secItemId}"></i>
+        </div>
+        <div class="remove-sec-item float-btn" data-action="remove" data-secid="sec-item-${secItemId}">
+          <i class="fa fa-minus" data-action="remove" data-secid="sec-item-${secItemId}"></i>
+        </div>
+      </div>`
   }
 
-  const sectionTemplate = `
-    <li id="section-2-default" class="sections">
-      <p class="section-title" contenteditable="true">Título da secção</p>
+  const sectionTemplate = function() { 
+    const secId = Date.now()    
+    return `
+    <li id="sec-${secId}" class="sections">
+      <div class="sec-head">
+        <p class="section-title" contenteditable="true">Título da secção</p>
+        <span class="remove-sec float-btn" data-action="remove" data-secid="sec-${secId}">
+          <i class="fa fa-minus" data-action="remove" data-secid="sec-${secId}"></i>
+        </span>
+      </div>
       ${secItemTamplate()}
     </li>`
-  
+  }
+  // Defina actions to create and remove sections items
   function sectionActions(event) {
     let action = event.target.dataset.action
     let secid = event.target.dataset.secid 
@@ -53,9 +64,9 @@ onready(function() {
     console.log(event.target)
     console.log(event.target.dataset)
   }
-
+  
   function newSection(event) {
-    $('#sec-container').insertAdjacentHTML('beforeend', sectionTemplate)
+    $('#sec-container').insertAdjacentHTML('beforeend', sectionTemplate())
   }
 
   // Create a whole new section

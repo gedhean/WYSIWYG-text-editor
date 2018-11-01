@@ -93,27 +93,36 @@
   margin-bottom: 36px;
 }
 
-.section {
-  outline: transparent dashed 2px;
+.section, .sec-head {
+  border:  2px dashed transparent;
 }
 
-.section:hover {
-  outline: rgba(68, 68, 68, 0.603) dashed 2px;
+.section:hover, .sec-head:hover {
+  border: 2px dashed rgba(68, 68, 68, 0.603);
 }
 
-.section:hover .float-btn {
+.section:hover .create-sec-item,  .section:hover .remove-sec-item {
   display: block;
 }
 
+.sec-head:hover .remove-sec {
+  display: inline-block;
+}
+
 .section-title {
-  font-size: 2rem;
+  font-size: 1.35rem;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 .section-subtitle {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.section-description {
+  font-size: 1rem;
 }
 
 .section-item-container {
@@ -122,7 +131,6 @@
 }
 
 .float-btn {
-  display: none;
   position: absolute;
   border: 1px solid var(--primary-color);
   border-radius: 50%;
@@ -132,12 +140,25 @@
   background-color: var(--primary-color);
 }
 
-.create-sec {
+.sec-head {
+  display: flex;
+  justify-content: space-between;
+  border: 2px dashed transparent;
+}
+
+.remove-sec {
+  position: relative;
+  display: none;
+}
+
+.create-sec-item {
+  display: none;
   top: -16px;
   right: -16px;
 }
 
-.remove-sec {
+.remove-sec-item {
+  display: none;
   top: -16px;
   right: 20px;
 }
