@@ -25,7 +25,6 @@
 }
 
 #menu-tool-bar {
-  width: 400px;
   border-radius: 5px;
   background-color: #666;
 }
@@ -35,6 +34,7 @@
   height: 100%;
   padding: 18px;
   text-align: center;
+  cursor: pointer;
 }
 
 .menu-icon {
@@ -85,6 +85,7 @@
 }
 
 #profession {
+  color: #666;
   font-size: 2rem;
 }
 
@@ -106,7 +107,7 @@
 
 .section-title {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -117,19 +118,28 @@
 
 .section-item-container {
   position: relative;
+  margin-left: 16px;
 }
 
 .float-btn {
   display: none;
   position: absolute;
-  right: -16px;
-  top: -16px;
   border: 1px solid var(--primary-color);
   border-radius: 50%;
   padding: 4px 8px;
   cursor: pointer;
   color: #FFF;
   background-color: var(--primary-color);
+}
+
+.create-sec {
+  top: -16px;
+  right: -16px;
+}
+
+.remove-sec {
+  top: -16px;
+  right: 20px;
 }
 
 .paper {
