@@ -1,17 +1,29 @@
-* {
+*, *::before, *::after {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-#wysiwyg-text-editor {
-  font-size: 18px;
-  color: #333;
+html {
+  font-size: 14.5px;
+  line-height: 1.5;
+  font-weight: normal;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  color: rgba(0,0,0,0.87);
+}
+
+ul:not(.default-list) > li {
+  list-style-type: none;
 }
 
 :root {
   --primary-color: #3331b4;
   --font-family: 'Poppins';
+}
+
+#wysiwyg-text-editor {
+  font-size: 18px;
+  color: #333;
 }
 
 .menu-container {
@@ -49,10 +61,18 @@
   margin-top: 8px;
 }
 
+.menu-palette {
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
 #color-picker {
   border: none;
   background: none;
   border-radius: 50%;
+  width: 2rem;
+  opacity: 0;
+  cursor: pointer;
 }
 
 #editable-area {
@@ -98,6 +118,15 @@
 
 .cv-header {
   margin-bottom: 36px;
+}
+
+.section {
+  padding-top: 1rem;
+  padding-bottom: 1rem; 
+}
+
+.sec-head {
+  position: relative;
 }
 
 .section, .sec-head {
@@ -154,8 +183,10 @@
 }
 
 .remove-sec {
-  position: relative;
   display: none;
+  position: absolute;
+  right: -16px;
+  top: -16px;
 }
 
 .create-sec-item {
