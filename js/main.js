@@ -98,6 +98,15 @@ onready(function() {
     doCommand({ cmd: 'insertimage', hasValue: true })
   }
 
+  function createUl(event) {
+    event.preventDefault()
+    doCommand({cmd: 'insertUnorderedList' })
+  }
+  
+  function createOl(event) {
+    event.preventDefault()
+    doCommand({cmd: 'insertOrderedList' })
+  }
   // Add actions buttos to create/remove section items
   $('#sec-container').onclick = sectionActions
   
@@ -113,4 +122,8 @@ onready(function() {
   $('#remove-link').onclick = unLink
   // insert image
   $('#insert-img').onclick = insertImg
+  // unordered list
+  $('#sub-section-ul').onclick = createUl
+  // ordered list
+  $('#sub-section-ol').onclick = createOl
 })
