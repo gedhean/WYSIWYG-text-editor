@@ -10,7 +10,19 @@ window.$all = function(selector) {
 window.onready = function(callback) {
   document.addEventListener('DOMContentLoaded', callback)
 }
-
+// Return an object containing data-* atribute element
+function getElementDataAttr(element) {
+  return element ? element.dataset : {}
+}
+// Execute a command to edit
+function doCommand(opt) {
+  let value = ""
+  if (opt.hasValue) {
+    value = window.prompt("Digite o valor:", "http://exemplo.com")
+  }
+  const result = document.execCommand(opt.cmd, false, value)
+  console.log(result ? `Comando ${opt.cmd} executado` : `Falha ao executar ${opt.cmd}`);
+}
 onready(function() {
   const secItemTamplate = function() {
     const secItemId = Date.now()
@@ -71,10 +83,34 @@ onready(function() {
     .setProperty('--primary-color', event.target.value)
   }
 
-  // Create a whole new section
-  $('#new-section').onclick = newSection
+  function createLink(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'createlink', hasValue: true })
+  }
+
+  function unLink(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'unlink' })
+  }
+
+  function insertImg(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'insertimage', hasValue: true })
+  }
+
   // Add actions buttos to create/remove section items
   $('#sec-container').onclick = sectionActions
+  
+  // Toolbar ->>
+  $('#menu-tool-bar').onmousedown = function(e) { e.preventDefault() } // Needed to not lose focus
+  // Create a whole new section
+  $('#new-section').onclick = newSection
   // Change CSS variables
   $('#color-picker').onchange = selectColor
+  // create a link
+  $('#create-link').onclick = createLink
+  // unlink 
+  $('#remove-link').onclick = unLink
+  // insert image
+  $('#insert-img').onclick = insertImg
 })

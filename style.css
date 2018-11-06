@@ -12,12 +12,18 @@ html {
   color: rgba(0,0,0,0.87);
 }
 
+a {
+  cursor: pointer;
+  /* color: currentColor; */
+  text-decoration: none;
+}
+
 ul:not(.default-list) > li {
   list-style-type: none;
 }
 
 :root {
-  --primary-color: #3331b4;
+  --primary-color: #982720;
   --font-family: 'Poppins';
 }
 
