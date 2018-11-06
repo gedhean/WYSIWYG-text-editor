@@ -101,6 +101,11 @@ ul.no-style > li {
   padding: 16px 36px;
 }
 
+#paper-cv img {
+  max-width: 100%;
+  height: auto;
+}
+
 .card {
   background: #fff;
   border-radius: 2px;

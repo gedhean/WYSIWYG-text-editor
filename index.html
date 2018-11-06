@@ -17,10 +17,6 @@
   <div id="wysiwyg-text-editor">
     <div class="menu-container">
       <div id="menu-tool-bar">
-        <!-- <div class="menu-item">
-          <i class="menu-icon fa fa-font"></i>
-          <span class="menu-lable">Tipografia</span>
-        </div> -->
         <div class="menu-item">
           <div class="menu-palette">
             <input type="color" name="color" id="color-picker" value="#3331b4">
@@ -50,6 +46,14 @@
           <i class="menu-icon fa fa-image"></i>
           <span class="menu-lable">Images</span>
         </div>
+        <div class="menu-item" id="undo">
+          <i class="menu-icon fa fa-undo"></i>
+          <span class="menu-lable">Desfazer</span>
+        </div>
+        <div class="menu-item" id="redo">
+          <i class="menu-icon fa fa-redo"></i>
+          <span class="menu-lable">Refazer</span>
+        </div>
       </div>
     </div>
   </div>
@@ -71,12 +75,9 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium.
                 Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
               </p>
-              <div class="create-sec-item float-btn" data-action="create" data-secid="sec-default-1">
+              <div class="create-sec-item float-btn" title="Criar" data-action="create" data-secid="sec-default-1">
                 <i class="fa fa-plus" data-action="create" data-secid="sec-default-1"></i>
               </div>
-              <!-- <div class="remove-sec float-btn" data-action="remove" data-secid="sec-default-1">
-                <i class="fa fa-minus" data-action="remove" data-secid="sec-default-1"></i>
-              </div> -->
             </div>
           </li>
           <li id="section-2-default" class="sections">
@@ -87,12 +88,9 @@
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium.
                   Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
                 </p>
-                <div class="create-sec-item float-btn" data-action="create" data-secid="sec-default-2">
+                <div class="create-sec-item float-btn" title="Criar" data-action="create" data-secid="sec-default-2">
                   <i class="fa fa-plus" data-action="create" data-secid="sec-default-2"></i>
                 </div>
-                <!-- <div class="remove-sec float-btn" data-action="remove" data-secid="sec-default-2">
-                  <i class="fa fa-minus" data-action="remove" data-secid="sec-default-2"></i>
-                </div> -->
               </div>
             </li>
         </ul>

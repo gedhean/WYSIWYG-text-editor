@@ -33,10 +33,10 @@ onready(function() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium. 
         Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
         </p>
-        <div class="create-sec-item float-btn" data-action="create" data-secid="sec-item-${secItemId}">
+        <div class="create-sec-item float-btn" data-action="create" title="Criar" data-secid="sec-item-${secItemId}">
           <i class="fa fa-plus" data-action="create" data-secid="sec-item-${secItemId}"></i>
         </div>
-        <div class="remove-sec-item float-btn" data-action="remove" data-secid="sec-item-${secItemId}">
+        <div class="remove-sec-item float-btn" data-action="remove" title="Remover" data-secid="sec-item-${secItemId}">
           <i class="fa fa-minus" data-action="remove" data-secid="sec-item-${secItemId}"></i>
         </div>
       </div>`
@@ -48,7 +48,7 @@ onready(function() {
     <li id="sec-${secId}" class="sections">
       <div class="sec-head">
         <p class="section-title" contenteditable="true">Título da secção</p>
-        <span class="remove-sec float-btn" data-action="remove" data-secid="sec-${secId}">
+        <span class="remove-sec float-btn" data-action="remove" title="Remover seção" data-secid="sec-${secId}">
           <i class="fa fa-minus" data-action="remove" data-secid="sec-${secId}"></i>
         </span>
       </div>
@@ -107,7 +107,17 @@ onready(function() {
     event.preventDefault()
     doCommand({cmd: 'insertOrderedList' })
   }
-  // Add actions buttos to create/remove section items
+
+  function undoCmd(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'undo' })
+  }
+  
+  function redoCmd(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'redo' })
+  }
+  // Add actions buttos to create/remove section items (subsections)
   $('#sec-container').onclick = sectionActions
   
   // Toolbar ->>
@@ -126,4 +136,8 @@ onready(function() {
   $('#sub-section-ul').onclick = createUl
   // ordered list
   $('#sub-section-ol').onclick = createOl
+  // undo
+  $('#undo').onclick = undoCmd
+  // redo
+  $('#redo').onclick = redoCmd
 })
