@@ -10,7 +10,19 @@ window.$all = function(selector) {
 window.onready = function(callback) {
   document.addEventListener('DOMContentLoaded', callback)
 }
-
+// Return an object containing data-* atribute element
+function getElementDataAttr(element) {
+  return element ? element.dataset : {}
+}
+// Execute a command to edit
+function doCommand(opt) {
+  let value = ""
+  if (opt.hasValue) {
+    value = window.prompt("Digite o valor:", "http://exemplo.com")
+  }
+  const result = document.execCommand(opt.cmd, false, value)
+  console.log(result ? `Comando ${opt.cmd} executado` : `Falha ao executar ${opt.cmd}`);
+}
 onready(function() {
   const secItemTamplate = function() {
     const secItemId = Date.now()
@@ -21,10 +33,10 @@ onready(function() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore impedit mollitia quas laudantium. 
         Tenetur omnis esse unde quis incidunt eos, eaque at, consectetur quidem animi in odio eum dolor ab!
         </p>
-        <div class="create-sec-item float-btn" data-action="create" data-secid="sec-item-${secItemId}">
+        <div class="create-sec-item float-btn" data-action="create" title="Criar" data-secid="sec-item-${secItemId}">
           <i class="fa fa-plus" data-action="create" data-secid="sec-item-${secItemId}"></i>
         </div>
-        <div class="remove-sec-item float-btn" data-action="remove" data-secid="sec-item-${secItemId}">
+        <div class="remove-sec-item float-btn" data-action="remove" title="Remover" data-secid="sec-item-${secItemId}">
           <i class="fa fa-minus" data-action="remove" data-secid="sec-item-${secItemId}"></i>
         </div>
       </div>`
@@ -36,7 +48,7 @@ onready(function() {
     <li id="sec-${secId}" class="sections">
       <div class="sec-head">
         <p class="section-title" contenteditable="true">Título da secção</p>
-        <span class="remove-sec float-btn" data-action="remove" data-secid="sec-${secId}">
+        <span class="remove-sec float-btn" data-action="remove" title="Remover seção" data-secid="sec-${secId}">
           <i class="fa fa-minus" data-action="remove" data-secid="sec-${secId}"></i>
         </span>
       </div>
@@ -71,10 +83,61 @@ onready(function() {
     .setProperty('--primary-color', event.target.value)
   }
 
+  function createLink(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'createlink', hasValue: true })
+  }
+
+  function unLink(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'unlink' })
+  }
+
+  function insertImg(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'insertimage', hasValue: true })
+  }
+
+  function createUl(event) {
+    event.preventDefault()
+    doCommand({cmd: 'insertUnorderedList' })
+  }
+  
+  function createOl(event) {
+    event.preventDefault()
+    doCommand({cmd: 'insertOrderedList' })
+  }
+
+  function undoCmd(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'undo' })
+  }
+  
+  function redoCmd(event) {
+    event.preventDefault()
+    doCommand({ cmd: 'redo' })
+  }
+  // Add actions buttos to create/remove section items (subsections)
+  $('#sec-container').onclick = sectionActions
+  
+  // Toolbar ->>
+  $('#menu-tool-bar').onmousedown = function(e) { e.preventDefault() } // Needed to not lose focus
   // Create a whole new section
   $('#new-section').onclick = newSection
-  // Add actions buttos to create/remove section items
-  $('#sec-container').onclick = sectionActions
   // Change CSS variables
   $('#color-picker').onchange = selectColor
+  // create a link
+  $('#create-link').onclick = createLink
+  // unlink 
+  $('#remove-link').onclick = unLink
+  // insert image
+  $('#insert-img').onclick = insertImg
+  // unordered list
+  $('#sub-section-ul').onclick = createUl
+  // ordered list
+  $('#sub-section-ol').onclick = createOl
+  // undo
+  $('#undo').onclick = undoCmd
+  // redo
+  $('#redo').onclick = redoCmd
 })
