@@ -10,7 +10,7 @@
 }
 
 :root {
-  --primary-color: rgb(51, 49, 180);
+  --primary-color: #3331b4;
   --font-family: 'Poppins';
 }
 
@@ -30,6 +30,7 @@
 }
 
 .menu-item {
+  position: relative;
   display: inline-block;
   height: 100%;
   padding: 18px;
@@ -46,6 +47,12 @@
   color: #FFF;
   display: block;
   margin-top: 8px;
+}
+
+#color-picker {
+  border: none;
+  background: none;
+  border-radius: 50%;
 }
 
 #editable-area {

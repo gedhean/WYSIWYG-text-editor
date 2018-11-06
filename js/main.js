@@ -53,24 +53,28 @@ onready(function() {
         el.insertAdjacentHTML('afterend', secItemTamplate())
         break
       case 'remove':
-        console.log(event.target.dataset)
         el.remove()
       default:
         break
     }
-
     console.log(action)
-    console.log('This', this)
-    console.log(event.target)
-    console.log(event.target.dataset)
   }
-  
+    
   function newSection(event) {
     $('#sec-container').insertAdjacentHTML('beforeend', sectionTemplate())
+  }
+
+  function selectColor(event) {
+    document
+    .documentElement
+    .style
+    .setProperty('--primary-color', event.target.value)
   }
 
   // Create a whole new section
   $('#new-section').onclick = newSection
   // Add actions buttos to create/remove section items
   $('#sec-container').onclick = sectionActions
+  // Change CSS variables
+  $('#color-picker').onchange = selectColor
 })
